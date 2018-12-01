@@ -1,4 +1,5 @@
-data = [int(i) for i in open('./input.txt', 'r')]
+with open('./input.txt', 'r') as f: 
+    data = [int(i) for i in f]
 
 def get_first_duplicate_total(data):
     total = 0
