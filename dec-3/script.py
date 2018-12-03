@@ -14,7 +14,7 @@ filled = set()
 def get_overlaps(coordinates, dimensions):
     for x in range(dimensions[0]):
         for y in range(dimensions[1]):
-            coord = str(x + coordinates[0]) +"," + str(y + coordinates[1])
+            coord = str(x + coordinates[0]) + "," + str(y + coordinates[1])
             if coord in filled:
                 overlaps.add(coord)
             else:
@@ -23,7 +23,7 @@ def get_overlaps(coordinates, dimensions):
 def no_overlaps(coordinates, dimensions):
     for x in range(dimensions[0]):
         for y in range(dimensions[1]):
-            coord = str(x + coordinates[0]) +"," + str(y + coordinates[1])
+            coord = str(x + coordinates[0]) + "," + str(y + coordinates[1])
             if coord in overlaps: return False
     return True
 
