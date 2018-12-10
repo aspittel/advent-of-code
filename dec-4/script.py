@@ -1,5 +1,4 @@
 import re
-from datetime import datetime, timedelta
 from collections import Counter
 
 with open('input.txt', 'r') as f:
@@ -22,7 +21,7 @@ for time, action in data:
     else:
         guards[_id]['length'] += time - start
         guards[_id]['minutes'] += list(range(start, time))
-        
+
 sleep_longest = max(guards.items(),key=lambda guard: guard[1]['length'])
 minutes = sleep_longest[1]['minutes']
 print(Counter(minutes).most_common(1)[0][0] * int(sleep_longest[0]))
