@@ -18,12 +18,14 @@ def gen_grid():
         grid.append(row)
     return grid
 
+
 def get_box(grid, row, col, size):
     _sum = 0
     for x in range(0, size):
         for y in range(0, size):
             _sum += grid[row + x][col + y]
     return _sum
+
 
 def find_max_subgrid(grid):
     max_sum = 0
@@ -37,5 +39,6 @@ def find_max_subgrid(grid):
                     coordinates = [i + 1, j + 1, size]
         print(coordinates, size, max_sum)
     return coordinates, max_sum
+
 
 print(find_max_subgrid(gen_grid()))
