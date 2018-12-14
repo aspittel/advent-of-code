@@ -118,7 +118,7 @@ def format_grid(grid):
 
 
 def last_survivor(carts):
-    while True:
+    while len(carts) > 1:
         seen = set(cart.coordinates() for cart in carts)
         for cart in carts:
             if cart.coordinates() in seen:
@@ -129,7 +129,7 @@ def last_survivor(carts):
                 else:
                     seen.add(cart.coordinates())
         carts = [cart for cart in carts if cart.coordinates() in seen]
-        if len(carts) == 1: return carts[0]
+    return carts[0]
     
 
 def get_collision(carts):
