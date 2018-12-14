@@ -110,8 +110,6 @@ def clean_original(grid):
     return grid
 
 
-grid = clean_original(grid)
-
 def format_grid(grid):
     for cart in carts:
         grid[cart.y][cart.x] = cart.direction
@@ -143,6 +141,6 @@ def get_collision(carts):
         seen.add((cart.x, cart.y,))
     return get_collision(carts)
 
-
+grid = clean_original(grid)
 print(get_collision(deepcopy(carts)))
 print(last_survivor(carts))
