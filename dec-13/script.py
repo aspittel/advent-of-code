@@ -61,7 +61,7 @@ class Cart:
         self.turn = "left"
 
     def __repr__(self):
-        return 'x={} y={} direction={} turn={}'.format(self.x, self.y, self.direction, self.turn)
+        return f'x={self.x} y={self.y} direction={self.direction} turn={self.turn}'
 
     def move_straight(self):
         x_move, y_move = increments[self.direction]
