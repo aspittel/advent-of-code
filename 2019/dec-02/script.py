@@ -15,8 +15,8 @@ def calculate(num1, num2, nums):
     return nums[0]
 
 
-with open("input.txt") as file:
-    for line in file:
+with open("input.txt") as _file:
+    for line in _file:
         input_values = [int(num) for num in line.split(",")]
         # part 1
         print(calculate(12, 2, input_values[:]))
