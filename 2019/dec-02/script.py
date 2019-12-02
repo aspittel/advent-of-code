@@ -27,3 +27,4 @@ with open("input.txt") as file:
             for j in range(100):
                 if calculate(i, j, input_values[:]) == GOAL:
                     print(100 * i + j) 
+                    break
