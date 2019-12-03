@@ -21,15 +21,15 @@ def find_points(paths):
     return points
 
 
-def get_intersections(points1, points2):
+def intersections(points1, points2):
     return set(points1.keys()).intersection(set(points2.keys()))
 
 
-def get_manhattan_distances(points):
+def manhattan_distances(points):
     return [abs(x) + abs(y) for x, y in points]
 
 
-def get_least_steps(intersections, points1, points2):
+def least_steps(intersections, points1, points2):
     return [points1[point] + points2[point] for point in intersections]
 
 
@@ -40,10 +40,10 @@ with open("input.txt") as _file:
     paths2 = format_coords(_file.readline())
     points2 = find_points(paths2)
 
-    intersections = get_intersections(points1, points2)
+    intersections = intersections(points1, points2)
 
     # Part 1
-    print(min(get_manhattan_distances(intersections)))
+    print(min(manhattan_distances(intersections)))
 
     # Part 2
-    print(min(get_least_steps(intersections, points1, points2)))
+    print(min(least_steps(intersections, points1, points2)))
