@@ -42,6 +42,7 @@ def find_intersection_steps(wire1, wire2):
     min_steps = None
     for idx1, line1 in enumerate(wire1):
         for idx2, line2 in enumerate(wire2):
+            print(line1, line2)
             line1 = LineString(line1)
             line2 = LineString(line2)
             
