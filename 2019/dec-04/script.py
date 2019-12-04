@@ -13,6 +13,7 @@ def check_number(n):
             if n_repeating == 1:
                 double_digit = True
             n_repeating = 0
+    # catch a repeat at the end
     if n_repeating == 1:
         double_digit = True
     return double_digit 
