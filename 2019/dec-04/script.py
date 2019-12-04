@@ -1,4 +1,4 @@
-def check_number(n):
+def check_number_double_repeats(n):
     double_digit = False
     n_repeating = 0
     n = str(n)
@@ -16,8 +16,23 @@ def check_number(n):
         double_digit = True
     return double_digit 
 
-good_passwords_count = 0
+
+def check_number(n):
+    repeat = False
+    n = str(n)
+    for n1, n2 in zip(n, n[1:]):
+        if n1 > n2:
+            return False
+        elif n1 == n2:
+            repeat = True
+    return double_digit 
+
+p1_count = 0
+p2_count = 0
 for n in range(134792, 675810 + 1):
     if check_number(n):
-        good_passwords_count += 1
-print(good_passwords_count)
+        p1_count += 1
+    if check_number_double_repeats(n):
+        p2_count += 1
+print(p1_count)
+print(p2_count)
