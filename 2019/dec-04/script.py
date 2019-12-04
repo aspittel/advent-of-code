@@ -25,7 +25,7 @@ def check_number(n):
             return False
         elif n1 == n2:
             repeat = True
-    return double_digit 
+    return repeat 
 
 p1_count = 0
 p2_count = 0
@@ -34,5 +34,6 @@ for n in range(134792, 675810 + 1):
         p1_count += 1
     if check_number_double_repeats(n):
         p2_count += 1
+        
 print(p1_count)
 print(p2_count)
