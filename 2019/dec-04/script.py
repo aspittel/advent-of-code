@@ -1,5 +1,3 @@
-increasing_numbers = set()
-
 def check_number(n):
     double_digit = False
     n_repeating = 0
