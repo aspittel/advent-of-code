@@ -19,6 +19,7 @@ def check_two_consecutive_digits(n):
             repeat_count = 0
     return repeat_count == 1
 
+
 p1_count = 0
 p2_count = 0
 
