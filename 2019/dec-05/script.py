@@ -40,7 +40,7 @@ def calculate(data, input_val):
     idx = 0
     diagnostic_code = None
     while data[idx] != 99:
-        modes = str(data[idx]).zfill(5)
+        modes = f"{data[idx]:05}"
         mode1, mode2, mode3, opcode = get_modes(modes)
         if opcode == 1:
             add(mode1, mode2, idx, data)
