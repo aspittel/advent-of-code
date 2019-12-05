@@ -19,12 +19,12 @@ with open("input.txt") as _file:
     for line in _file:
         input_values = [int(num) for num in line.split(",")]
         # part 1
-        print(calculate(12, 2, input_values[:]))
+        print(f"Part 1: {calculate(12, 2, input_values[:])}")
 
         # part 2
         GOAL = 19690720
         for i in range(100):
             for j in range(100):
                 if calculate(i, j, input_values[:]) == GOAL:
-                    print(100 * i + j) 
+                    print(f"Part 2: {100 * i + j}") 
                     break

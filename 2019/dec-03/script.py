@@ -42,8 +42,6 @@ with open("input.txt") as _file:
 
     intersections = intersections(points1, points2)
 
-    # Part 1
-    print(min(manhattan_distances(intersections)))
+    print(f"Part 1: {min(manhattan_distances(intersections))}")
 
-    # Part 2
-    print(min(least_steps(intersections, points1, points2)))
+    print(f"Part 1: {min(least_steps(intersections, points1, points2))}")

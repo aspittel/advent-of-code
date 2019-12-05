@@ -13,8 +13,8 @@ def get_fuel_recursive(mass, running_sum=0):
 
 recursive_sum = 0
 non_recursive_sum = 0
-with open("input.txt") as file:
-    for line in file:
+with open("input.txt") as _file:
+    for line in _file:
         mass = int(line)
         recursive_sum += get_fuel_recursive(mass)
         non_recursive_sum += get_fuel(mass)
