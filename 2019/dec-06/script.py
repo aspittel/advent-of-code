@@ -1,4 +1,4 @@
-def clean_data(_file):
+def get_data(_file):
     orbits = {}
     objects = set()
 
@@ -28,7 +28,7 @@ def get_path_between(start, end, orbits):
 
 
 with open("input.txt") as _file:
-    orbits, objects = clean_data(_file)
+    orbits, objects = get_data(_file)
 
 print(f"Part 1: {get_total_orbits(orbits)}")
 print(f'Part 2: {get_path_between("YOU", "SAN", orbits)}')
