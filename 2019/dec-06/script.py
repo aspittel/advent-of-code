@@ -12,7 +12,7 @@ def clean_data(_file):
 
 
 def get_orbit(current_obj, orbits):
-    if current_obj == "COM": return []
+    if current_obj not in orbits: return []
     return [orbits[current_obj]] + get_orbit(orbits[current_obj], orbits)
 
 
