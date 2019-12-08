@@ -24,57 +24,60 @@ class Computer:
             return self.data[self.data[self.idx + increment]]
         return self.data[self.idx + increment]
 
-    def add(self, param1, param2):
-        return param1 + param2
+    def add(self, mode1, mode2):
+        param1, param2 = self.get_params(mode1, mode2)
+        self.data[self.data[self.idx + 3]] = param1 + param2
+        self.idx += 4
 
-    def multiply(self, param1, param2):
-        return param1 * param2
+    def multiply(self, mode1, mode2):
+        param1, param2 = self.get_params(mode1, mode2)
+        self.data[self.data[self.idx + 3]] = param1 * param2
+        self.idx += 4
 
-    def less_than(self, param1, param2):
-        return 1 if param1 < param2 else 0
+    def take_input(self):
+        self.data[self.data[self.idx + 1]] = self.inputs.pop(0)
+        self.idx += 2
 
-    def equals(self, param1, param2):
-        return 1 if param1 == param2 else 0
+    def create_output(self):
+        self.output = self.data[self.data[self.idx + 1]]
+        self.idx += 2
+        return self.output
+
+    def less_than(self, mode1, mode2):
+        param1, param2 = self.get_params(mode1, mode2)
+        self.data[self.data[self.idx + 3]] = 1 if param1 < param2 else 0
+        self.idx += 4
+
+    def equals(self, mode1, mode2):
+        param1, param2 = self.get_params(mode1, mode2)
+        self.data[self.data[self.idx + 3]] = 1 if param1 == param2 else 0
+        self.idx += 4
 
     def jump_if_true(self, mode1, mode2):
         param1, param2 = self.get_params(mode1, mode2)
-        return param2 if param1 != 0 else self.idx + 3
+        self.idx = param2 if param1 != 0 else self.idx + 3
 
     def jump_if_false(self, mode1, mode2):
         param1, param2 = self.get_params(mode1, mode2)
-        return param2 if param1 == 0 else self.idx + 3
+        self.idx = param2 if param1 == 0 else self.idx + 3
 
     def calculate(self, input_val):
         self.inputs.append(input_val)
+        modes = {
+            1: lambda: self.add(mode1, mode2),
+            2: lambda: self.multiply(mode1, mode2),
+            3: lambda: self.take_input(),
+            5: lambda: self.jump_if_true(mode1, mode2),
+            6: lambda: self.jump_if_false(mode1, mode2),
+            7: lambda: self.less_than(mode1, mode2),
+            8: lambda: self.equals(mode1, mode2)
+        }
         while True:
             mode1, mode2, mode3, opcode = get_modes(f"{self.data[self.idx]:05}")
-            if opcode == 1:
-                param1, param2 = self.get_params(mode1, mode2)
-                self.data[self.data[self.idx + 3]] = self.add(param1, param2)
-                self.idx += 4
-            elif opcode == 2:
-                param1, param2 = self.get_params(mode1, mode2)
-                self.data[self.data[self.idx + 3]] = self.multiply(param1, param2)
-                self.idx += 4
-            elif opcode == 3:
-                self.data[self.data[self.idx + 1]] = self.inputs.pop(0)
-                self.idx += 2
+            if opcode in modes:
+                modes[opcode]()              
             elif opcode == 4:
-                self.output = self.data[self.data[self.idx + 1]]
-                self.idx += 2
-                return self.output
-            elif opcode == 5:
-                self.idx = self.jump_if_true(mode1, mode2)
-            elif opcode == 6:
-                self.idx = self.jump_if_false(mode1, mode2)
-            elif opcode == 7:
-                param1, param2 = self.get_params(mode1, mode2)
-                self.data[self.data[self.idx + 3]] = self.less_than(param1, param2)
-                self.idx += 4
-            elif opcode == 8:
-                param1, param2 = self.get_params(mode1, mode2)
-                self.data[self.data[self.idx + 3]] = self.equals(param1, param2)
-                self.idx += 4
+                return self.create_output()                
             elif opcode == 99:
                 self.done = True
                 return self.output
