@@ -27,8 +27,9 @@ with open('input.txt') as _file:
 
     start = 0
     print("Part 2: ")
-    while start < len(stacked_pixels):
-        print(stacked_pixels[start:start + LAYER_WIDTH])
-        start += 25
+    print(''.join(layer) for layer in get_layer(LAYER_WIDTH, 1, stacked_pixels))
+    # while start < len(stacked_pixels):
+    #     print(stacked_pixels[start:start + LAYER_WIDTH])
+    #     start += 25
 
 
