@@ -21,8 +21,9 @@ with open('input.txt') as _file:
         while not done:
             if layers[starting_idx][coordinate] == "2":
                 starting_idx += 1
-            done = True
-            stacked_pixels += " " if layers[starting_idx][coordinate] == "0" else "1"
+            else:
+                done = True
+                stacked_pixels += " " if layers[starting_idx][coordinate] == "0" else "1"
 
     start = 0
     print("Part 2: ")
