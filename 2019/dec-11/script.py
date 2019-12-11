@@ -1,9 +1,3 @@
-from itertools import permutations
-
-def get_permutations(li):
-    for permutation in permutations(li):
-        yield permutation
-
 def get_modes(modes):
     return [int(mode) for mode in [modes[2], modes[1], modes[0], modes[3:]]]
 
