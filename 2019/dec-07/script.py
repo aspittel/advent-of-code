@@ -88,7 +88,7 @@ def max_output_signal(input_vals):
     for permutation in get_permutations([0, 1, 2, 3, 4]):
         output_signal = 0
         for input_signal in permutation:
-            computer = Computer(input_vals[:])
+            computer = Computer(input_vals)
             computer.inputs.append(input_signal)
             output_signal = computer.calculate(output_signal)
         max_output_signal = max(max_output_signal, output_signal)
@@ -98,7 +98,7 @@ def max_output_signal(input_vals):
 def max_output_signal_feedback_loop(input_vals):
     max_output_signal = 0
     for permutation in get_permutations([5, 6, 7, 8, 9]):
-        computers = [Computer(input_vals[:]) for _ in range(5)]
+        computers = [Computer(input_vals) for _ in range(5)]
         output_signal = 0
         for computer, phase_setting in zip(computers, permutation):
             computer.inputs.append(phase_setting)
@@ -114,4 +114,4 @@ with open("input.txt") as _file:
     for line in _file:
         input_vals = [int(num) for num in line.split(",")]
         print(f"Part 1: {max_output_signal(input_vals)}")
-        print(print(f"Part 2: {max_output_signal_feedback_loop(input_vals)}"))
+        print(f"Part 2: {max_output_signal_feedback_loop(input_vals)}")
