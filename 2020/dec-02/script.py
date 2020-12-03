@@ -5,6 +5,7 @@ def check_count_in_range(password, letter, start, stop):
 def check_indexes(password, letter, start, stop):
     return (password[start] == letter or password[stop] == letter) and (password[start] != password[stop])
 
+
 with open('input.txt') as file:
     letters = [num.split(": ") for num in file]
     part1_tally = 0
