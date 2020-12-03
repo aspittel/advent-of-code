@@ -8,8 +8,8 @@ def get_trees_for_slope(right, down, lines):
     y = down
     trees = 0
     while y < len(lines):
-        if x > len(lines[y]):
-            x = x % len(lines[y][0])
+        if x > len(lines[y]) - 1:
+            x = x % len(lines[y])
         if lines[y][x] == '#':
             trees += 1
         x += right
@@ -21,8 +21,7 @@ with open('input.txt') as inp:
     lines = [line for line in inp]
     height = len(lines)
     width = len(lines[0])
-    cols_needed = ((height * 10) // width) + 2
-    lines = [list(line.rstrip() * 102) for line in lines]
+    lines = [list(line.rstrip()) for line in lines]
 
     print("Part 1", get_trees_for_slope(3, 1, lines))
 
