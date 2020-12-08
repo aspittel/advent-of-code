@@ -24,8 +24,10 @@ def move(lines, part_1=False):
         elif move == "jmp":
             idx += arg
 
+
 def flip(val):
     return 'jmp' if val == 'nop' else 'nop'
+
 
 def change_piece(lines):
     for idx, turn in enumerate(lines):
