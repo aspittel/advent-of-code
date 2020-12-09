@@ -25,6 +25,5 @@ with open('input.txt') as file:
             vals.append(nums[curr_idx])
             curr_idx += 1
         if tracking_sum == looking_for:
-            print(vals)
             print("Part 2", max(vals) + min(vals))
             break
