@@ -18,7 +18,6 @@
 #     print("Part 1", tally)
 
 def traverse(key, tree):
-    print(key)
     if key == 'no other': 
         return 0
     _sum = sum([i for i in tree[key].values()])

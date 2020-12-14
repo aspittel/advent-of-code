@@ -89,6 +89,7 @@ def extended_euclid(a, b):
 
 
 def chinese_remainder_theorem(num1, rem1, num2, rem2):
+    # FROM: https://github.com/TheAlgorithms/Python/blob/master/blockchain/chinese_remainder_theorem.py
     (x, y) = extended_euclid(num1, num2)
     m = num1 * num2
     n = (rem2 * x * num1) + (rem1 * y * num2)
