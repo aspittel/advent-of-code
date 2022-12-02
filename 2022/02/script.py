@@ -10,8 +10,7 @@ with open('input.txt', 'r') as _file:
         elf, me = string.ascii_uppercase.index(elf) + 1, string.ascii_uppercase.index(me) - 22
         score += me
         if elf == me: score += 3
-        if wins[me] == elf: 
-            score += 6
+        if wins[me] == elf: score += 6
 # Part 1
 print(score)
 
